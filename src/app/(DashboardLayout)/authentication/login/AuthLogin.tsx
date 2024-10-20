@@ -13,7 +13,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import CustomTextField from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField";
+
 const url = process.env.NEXT_PUBLIC_WEB_URL;
+
 interface LoginType {
   title?: string;
   subtitle?: JSX.Element | JSX.Element[];
@@ -34,7 +36,7 @@ const AuthLogin = ({ title, subtitle, subtext }: LoginType) => {
     setError(null);
 
     try {
-      const response = await fetch(url+"/auth/login", {
+      const response = await fetch(`${url}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
